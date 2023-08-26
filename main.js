@@ -25,7 +25,7 @@ let data = [
             "type":"Bánh Trung Thu Trăng Vàng Thượng Hạng Black & Gold",
         },
         {
-            "img":"https://banhkinhdo.com.vn/wp-content/uploads/2023/…thu-kinh-do-25-nam-phien-ban-gioi-han-300x300.jpg",
+            "img":"https://banhkinhdo.com.vn/wp-content/uploads/2023/07/hop-banh-trung-thu-kinh-do-25-nam-phien-ban-gioi-han-300x300.jpg",
             "name":"Hộp Bánh Trung Thu Kinh Đô 25 Năm – Phiên Bản Giới Hạn",
             "price":"680.000 ₫",
             "type":"Bánh Trung Thu Trăng Vàng Thượng Hạng Black & Gold",
@@ -136,21 +136,43 @@ for (let i of data){
     let count = 0
     let render = `<div class="container-list">`
     for(let j of i){
-        if(count = 0){
+        if(count == 0){
             render+=`<h3 class="content-cake">${j.type}</h3><div class="container-content">`
             count++
         }
         render+=
-        `<div> class="content-items">
-            <img class="content-img"
+        `
+        <div class="content-items">
+          <img class="content-img"
             src="${j.img}" alt="">
-            <p class="content-name">${j.name}</p>
-            <p class="content-price">${j.price}</p>
-            <button class="content-button">Đặt Hàng</button>
-        </div>`
+          <p class="content-name">${j.name}</p>
+          <p class="content-price">${j.price}</p>
+          <button class="content-button">Đặt Hàng</button>
+        </div>
+        `
     }
     render+=`</div></div>`   
     console.log(render)
     container.innerHTML+=render
 }
 
+// Kiểm tra đăng nhập
+let signUp = document.getElementById('sign-up')
+let logOut = document.getElementById('log-out')
+let emailShow = document.getElementById('email-show')
+
+if(localStorage.getItem('hadLogged')){
+    signUp.hidden = true
+    logOut.hidden = false
+    emailShow.innerHTML = localStorage.getItem('email')
+}else{
+    signUp.hidden = false
+    logOut.hidden = true
+}
+
+// Đăng xuất
+logOut.addEventListener('click',()=>{
+    localStorage.removeItem('hadLogged')
+    localStorage.removeItem('email')
+    location.reload()
+})

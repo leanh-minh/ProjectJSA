@@ -31,6 +31,8 @@
             let email = document.getElementById('email').value;
             let pw = document.getElementById('pass').value;
             if (checkAccount(email, pw)) {
+                localStorage.setItem("hadLogged", 'true');
+                localStorage.setItem("email", email);
                 location.href = './index.html'
             }
             ///neu sai..

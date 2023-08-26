@@ -43,6 +43,7 @@
                             document.getElementById('email').value = '';
                             document.getElementById('pass').value = '';
                             document.getElementById('con-pass').value = '';
+                            return 
                         }
                     }
                     let acc = {
@@ -51,12 +52,14 @@
                     }
                     accLocal.push(acc)
                     localStorage.setItem('Acc', JSON.stringify(accLocal))
+                    localStorage.setItem("hadLogged", 'true');
+                    localStorage.setItem("email", email);
+                    location.href = './index.html'
                     alert('Your account have been created!');
                 }
                 document.getElementById('email').value = '';
                 document.getElementById('pass').value = '';
                 document.getElementById('con-pass').value = '';
-                location.href = './index.html'
             } else {
                 alert('Please fill full form !');
             }
