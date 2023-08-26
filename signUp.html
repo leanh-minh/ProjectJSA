@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="backgr.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="render">
+        <div class="left">
+            <h1>SIGN UP</h1>
+            <input type="email" id="email" placeholder="Enter your email"><br>
+            <input type="password" id="pass" placeholder="Enter your password"><br>
+            <input type="password" id="con-pass" placeholder="Confirm your password"><br>
+            <p id="ro-sign-up" onclick="location.href = './index.html'">Sign in</p>
+            <button id="sign-in" onclick="saveAccount()">Sign up</button>
+        </div>
+    </div>
+    <script>
+        let status = localStorage.getItem("hadLogged");
+        if (!status) {
+            localStorage.setItem("hadLogged", 'false');
+        }
+        let accounts = localStorage.getItem("Acc");
+        if (!accounts) {
+            let arrAcc = [];
+            localStorage.setItem("Acc", JSON.stringify(accounts));
+        }
+        function saveAccount() {
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('pass').value;
+            let conFirm = document.getElementById('con-pass').value;
+            if (validation(email, password, conFirm)) {
+                if (password == conFirm) {
+                    accLocal = JSON.parse(localStorage.getItem('Acc')) || [];
+                    for (let Item of accLocal) {
+                        if (email == Item.email) {
+                            alert("please choose other email")
+                            document.getElementById('email').value = '';
+                            document.getElementById('pass').value = '';
+                            document.getElementById('con-pass').value = '';
+                        }
+                    }
+                    let acc = {
+                        email: email,
+                        pass: password,
+                    }
+                    accLocal.push(acc)
+                    localStorage.setItem('Acc', JSON.stringify(accLocal))
+                    alert('Your account have been created!');
+                }
+                document.getElementById('email').value = '';
+                document.getElementById('pass').value = '';
+                document.getElementById('con-pass').value = '';
+                location.href = './index.html'
+            } else {
+                alert('Please fill full form !');
+            }
+
+        }
+        function validation(email, pass, conFirm) {
+            if (!email || !pass || !conFirm) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>

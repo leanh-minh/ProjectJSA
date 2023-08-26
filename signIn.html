@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="backgr.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="render">
+        <div class="left">
+            <h1>SIGN IN</h1>
+            <input type="email" id="email" placeholder="Enter your email"><br>
+            <input type="password" id="pass" placeholder="Enter your password"><br>
+            <p id="ro-sign-up" onclick="location.href = './signup.html'">Sign up</p>
+            <button id="sign-in" onclick="login()">Sign in</button>
+        </div>
+    </div>
+    <script>
+        /////localstogares check status hadLogged = true | false
+        ///// ĐÂY LÀ TRANG LOGIN
+        let status = localStorage.getItem("hadLogged");
+        if (!status) {
+            localStorage.setItem("hadLogged", 'false');
+        }
+        function login() {
+            ///neu TK va MK dung 
+            let email = document.getElementById('email').value;
+            let pw = document.getElementById('pass').value;
+            if (checkAccount(email, pw)) {
+                location.href = './index.html'
+            }
+            ///neu sai..
+            else {
+                alert('Username or password not correct!');
+            }
+        }
+        function checkAccount(email, pass) {
+            let flag = false;
+            let account = JSON.parse(localStorage.getItem('Acc')) || [];
+            for (let item of account) {
+                if (email == item.email && pass == item.pass) {
+                    flag = true
+                }
+            }
+
+            return flag;
+        }
+    </script>
+</body>
+
+</html>
