@@ -22,7 +22,7 @@
 #ro-sign-up,#ro-sign-in{
     text-align: right;
     margin-right: 30px;
-    color: #fff;
+    color:black;
     font-size: 18px;
 }
 #ro-sign-up:hover,#ro-sign-in:hover{
@@ -31,6 +31,8 @@
 #sign-in{
     display: block;
     margin: 0 auto;
+    padding: 10px;
+    background-color:rgb(255, 85, 0);
 }
 input{
     padding: 10px;
@@ -132,7 +134,7 @@ footer{
     color:red;
 }
 .content-button{
-    color: #fff;
+    color: #ffffff;
     background-color:brown;
     padding: 10px;
 }
@@ -152,4 +154,14 @@ footer{
 }
 a{
     text-decoration: none;
+}
+.bjs{
+    background-image: url(image/banh-trung-thu-kinh-do-co-ngon-khong-tim-hieu-cac-loai-banh-trung-thu-kinh-do-202008232248210798.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+#log-out{
+    color:black;
 }
