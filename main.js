@@ -33,7 +33,7 @@ let data = [
     ],
     [
         {
-            "img":"https://banhkinhdo.com.vn/wp-content/uploads/2021/08/trang-vang-pha-le-van-phuc-xanh-thumb.jpg",
+            "img":"https://banhkinhdo.com.vn/wp-content/uploads/2020/08/trang-vang-pha-le-van-phuc-xanh2.jpg",
             "name":"Trăng Vàng Pha Lê Vạn Phúc 2023",
             "price":"980.000 ₫",
             "type":"Bánh Trung Thu Trăng Vàng 2023",
